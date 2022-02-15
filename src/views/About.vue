@@ -7,6 +7,9 @@
     </h1>
     <button @click="aumentar">+</button>
     <button @click="disminuir">-</button>
+    <hr>
+    <input type="text" v-model="texto">
+    <p>{{texto}}</p>
   </div>
 </template>
 
@@ -16,6 +19,8 @@ export default {
   setup() {
     //setup() es una funcion que se ejecuta antes de que se cree el copomenente.
     const contador = ref(0); //Con ref() se consigue que sea reactivo
+
+    const texto = ref(''); //Creacion de texto reactivo
 
     const aumentar = () => {
       contador.value++; //Se accede al valor que tiene contador
@@ -34,7 +39,9 @@ export default {
       }
     });
 
-    return { contador, aumentar, disminuir, color };
-  },
+    
+
+    return { contador, aumentar, disminuir, color, texto };
+  }
 };
 </script>
