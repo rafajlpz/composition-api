@@ -1,10 +1,11 @@
 <template>
   <div class="about">
-    <h1 
+    <Titulo :contador="contador" :color="color" />
+    <!-- <h1 
     :style="{ color: color }"
     >
     Contador: {{ contador }}
-    </h1>
+    </h1> -->
     <button @click="aumentar">+</button>
     <button @click="disminuir">-</button>
     <hr>
@@ -14,8 +15,13 @@
 </template>
 
 <script>
-import { ref, computed } from "@vue/reactivity";
+import Titulo from '../components/Titulo'
+import { computed, ref } from "@vue/reactivity";
 export default {
+  components:{
+    Titulo
+  },
+
   setup() {
     //setup() es una funcion que se ejecuta antes de que se cree el copomenente.
     const contador = ref(0); //Con ref() se consigue que sea reactivo
