@@ -6,8 +6,10 @@
     >
     Contador: {{ contador }}
     </h1> -->
-    <button @click="aumentar">+</button>
-    <button @click="disminuir">-</button>
+    <!-- <button @click="aumentar">+</button>
+    <button @click="disminuir">-</button> -->
+    <Btn :textoBoton="'Aumentar'" @accion="aumentar"/>
+    <Btn :textoBoton="'Disminuir'" @accion="disminuir"/>
     <hr>
     <input type="text" v-model="texto">
     <p>{{texto}}</p>
@@ -15,11 +17,13 @@
 </template>
 
 <script>
-import Titulo from '../components/Titulo'
+import Btn from '../components/Btn.vue'
+import Titulo from '../components/Titulo.vue'
 import { computed, ref } from "@vue/reactivity";
 export default {
   components:{
-    Titulo
+    Titulo,
+    Btn
   },
 
   setup() {
